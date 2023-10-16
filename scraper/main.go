@@ -23,15 +23,18 @@ func Scrape(){
 func Tokenize(){
 	docs := tokenizer.GetDocs()
 
+	startTime := time.Now()
 	for _, doc_path := range docs {
 		doc := tokenizer.GetDoc(doc_path)
 		tokenizer.Encode(doc)
     }
+	endTime := time.Now()
+	duration := endTime.Sub(startTime)
 
-	fmt.Println("Tokenized", len(docs), "docs.")
+	fmt.Println("Tokenized", len(docs), "docs in", duration)
 }
 
 func main(){
-	Scrape()
-	//Tokenize()
+	//Scrape()
+	Tokenize()
 }
