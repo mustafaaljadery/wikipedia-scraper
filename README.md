@@ -10,7 +10,9 @@ I wrote a detailed paper [here](https://www.maxaljadery.com/posts/scrape-wikiped
 
 There are some design choices that I chose, that depending on what I'm building or what I want to do with this, I would do differently.
 
-Firstly, concurrent locks on queue. Right now, I'm not processing the scrapping concurrently, however the extraction and adding to the queue is done concurrently. I'm not scraping concurrently because I don't want to put a lot of load on the Wikipedia server as this is just a project for me, I'm not going to build a project around this data.
+Firstly, concurrent locks on queue. Right now, I'm not processing the scrapping concurrently, however the extraction and adding to the queue is done concurrently. I'm not scraping concurrently because I don't want to put a lot of load on the Wikipedia server as this is just a project for me, I'm not really going to do anything useful with the data.
+
+Secondly, storing the data. Firstly, if I wanted to store the data, I would just store the tokens. You can think of the tokens as a compressions of all the text. You will get way less tokens then you will have words, and they take less memory. (Given my intent is to use them for LLM training)
 
 ## FAQ
 
@@ -22,17 +24,13 @@ Firstly, concurrent locks on queue. Right now, I'm not processing the scrapping 
 
 Change the `.env.example` to `.env` then input your redis url and the start wikipedia URL, make sure the first one is semi-popular!
 
-**To run the scraper**
-
 Make sure you are in the scraper folder.
 
-```bash copy
-go run main.go
-```
+To run the scrape, comment the tokenizer in main and keep the scraper.
 
-**To run the tokenizer**
+To run the tokienzer, comment the scraper in main and keep the tokenizer.
 
-Make sure you have data in the scraper, and you are in the tokenizer folder.
+**Run code**
 
 ```bash copy
 go run main.go
