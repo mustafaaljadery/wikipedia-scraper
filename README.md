@@ -1,6 +1,8 @@
 # Wikipedia Scraper
 
-The goal of this project is to scrape Wikipedia and format the data so that it is readable by LLMS (tokenize the data).
+The goal of this project is to scrape Wikipedia and format the data so that it is readable by LLMs (tokenize the data).
+
+![GIF demo of Scraper and Tokenizer](/images/demo.gif)
 
 ## How does it work
 
