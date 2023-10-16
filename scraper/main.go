@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"scraper/linkqueue"
 	"scraper/scrape"
+	"scraper/tokenizer"
 	"time"
 )
 
@@ -20,10 +21,13 @@ func Scrape(){
 }
 
 func Tokenize(){
+	docs := tokenizer.GetDocs()
+	doc := tokenizer.GetDoc(docs[0])
 
+	fmt.Println(tokenizer.Encode(doc))
 }
 
 func main(){
-	Scrape()
+	//Scrape()
 	Tokenize()
 }
