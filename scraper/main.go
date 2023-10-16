@@ -35,6 +35,6 @@ func Tokenize(){
 }
 
 func main(){
-	//Scrape()
+	Scrape()
 	Tokenize()
 }
